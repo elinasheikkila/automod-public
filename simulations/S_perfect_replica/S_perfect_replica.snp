@@ -1,0 +1,544 @@
+%--------------------------------------------------------------------------
+%----SSSSSSSSSS----NNNN----NN----UU------UU----PPPPPPPPPP----IIIIIIIIII----
+%----SS------------NN-NN---NN----UU------UU----PP------PP--------II--------
+%----SSSSSSSSSS----NN--NN--NN----UU------UU----PPPPPPPPPP--------II--------
+%------------SS----NN---NN-NN----UU------UU----PP----------------II--------
+%----SSSSSSSSSS----NN----NNNN----UUUUUUUUUU----PP------------IIIIIIIIII----
+%--------------------------------------------------------------------------
+%
+%==========================================================================
+% Static Analysis Options
+%==========================================================================
+% Static simulation
+%   [0] No
+%   [1] Yes
+%   Default: 	1
+DO_STT          1
+
+% Total number of incremental steps
+%   Default: 	30
+STT_STEP        30
+
+% Maximum iteration number in each incremental step
+%   Default: 	15
+STT_NL_NUM      15
+
+% Maximum trial number in iteration
+%   Default: 	100
+STT_INC_NUM     100
+
+% Tolerance value [Disp. Force Energy]
+%   Default: 	1  1E-3  1E-6
+STT_TOL         1  1E-3  1E-6
+
+% GPU computing for static analysis
+%   [0] Not use
+%   [1] Use
+%   Default: 	0
+STT_GPU         0
+
+% Static analysis using restart file
+% 	Restart file required: [DESIGN_NAME]_RES.mat
+%   [0] Not use
+%   [1] Use
+%   Default: 	0
+DO_RES_STT      0
+
+% Total number of incremental steps in restart simulation
+%   Default: 	10
+RES_STT_STEP    10
+
+
+%==========================================================================
+% Initial Configuartion Options
+%==========================================================================
+% Perform partition and relocation framework
+% Use for wireframe or free-form structures
+%   [0] Not use
+%   [1] Use
+%   Default: 	1
+DO_PAR_REL      1
+
+% Generation of the initial (design) model file
+%   [0] Not generation
+%   [1] Generation
+%   Default: 	1
+INIT_DES_MODEL	1
+
+% Generation of the initial (design) PDB file
+%   [0] Not generation
+%   [1] Generation
+%   Default: 	0
+INIT_DES_PDB	0
+
+
+%==========================================================================
+% Base-pair & Crossover Steps Options
+%==========================================================================
+% Coefficient function for base-pair or crossover steps 
+%   Default: 	2
+BP_CF_IND	2
+
+% Final incremental step assigning the mechanical properties of BP or CO
+% 	Not to use this option, set 0 (the total number of incremental steps)
+%   Default: 	0
+BP_TIME_FINL	0
+
+
+%==========================================================================
+% Single-stranded DNA Options
+%==========================================================================
+% Contour length per nucleotide for short ssDNA [nm/nt]
+%   Default: 	0.38  0.11	(mean, std)
+SS_LCT1_S	0.38  0.11
+
+% Contour length per nucleotide for long ssDNA [nm/nt]
+%   Default: 	0.68  0.29	(mean, std)
+SS_LCT1_L	0.68  0.29
+
+% Coefficient for contour length per nucleotide
+%   Default: 	0.20  0.02	(mean, std)
+SS_LCT1_k	0.20  0.02
+
+% Persistence length for long ssDNA [nm]
+%   Default: 	0.67  0.15	(mean, std)
+SS_LPB_L	0.67  0.15
+
+% Coefficient for persistence length
+%   Default: 	5.4   0.3	(mean, std)
+%   Default: 	0.21  0.02	(mean, std)
+SS_LPB_ka	5.4   0.3
+SS_LPB_kb	0.21  0.02
+
+% Stretching rigidity when relaxed [pN]
+%   Default: 	15  2.8     (mean, std)
+SS_EA_L		15  2.8
+
+% Stretching rigidity when stretched [pN]
+%   Default: 	710  60     (mean, std)
+SS_EA_H		710  60
+
+% Coefficient for stretching rigidity
+%   Default: 	80, 0.072, 1.16
+SS_EA_ka        80
+SS_EA_kb        0.072
+SS_EA_kc        1.16
+
+% Torsional rigidity for short ssDNA [pN*nm^2]
+%   Default: 	15  3.6     (mean, std)
+SS_GJ_H		15  3.6
+
+% Torsional rigidity for long ssDNA [pN*nm^2]
+%   Default: 	2  1.2      (mean, std)
+SS_GJ_L		2  1.2
+
+% Coefficient for torsional rigidity
+%   Default: 	0.3  0.12	(mean, std)
+SS_GJ_k         0.3  0.12
+
+% Coefficient function of the time step for ssDNA
+%   Default: 	3
+SS_CF_IND	3
+
+% Final incremental step assigning the mechanical properties of ssDNA
+% 	Not to use this option, set 0 (the total number of incremental steps)
+%   Default: 	0
+SS_TIME_FINL	0
+
+% Gaussian sampling of ssDNA properties
+% 	By default, mean properties of ssDNA are used
+%   [0] Not sampling
+%   [1] Sampling
+%    Default:   0
+SS_SAMP         0
+
+
+%==========================================================================
+% Electrostatic Interaction Options 
+%==========================================================================
+% Electrostatic interaction
+%   [0] Not use
+%   [1] Use
+%   Default: 	1
+DO_ES		1
+
+% Temperature [K]
+%   Default: 	300
+ES_TEMP		300
+
+% Mg concentration [mM]
+%   Default: 	20
+ES_MG		20
+
+% Cutoff distance [nm]
+%   Default: 	2.5
+ES_R_CUT	2.5
+
+% Connection type
+%   [1] Connection between interhelical nodes
+%   [2] Connection between all nodes
+%   Default: 	1
+ES_CONN_IND  	1
+
+% Initiating time step of electrostatic interaction 
+%   Default: 	1
+ES_TIME_INIT	1
+
+% Coefficient function for electrostatic elements
+%   Default: 	1
+ES_CF_IND	1
+
+% Iteration number for electrostatic interaction
+%   The value should be integer (1, 2, ...)
+%   Default: 	3
+ES_ITER_NUM	3
+
+% User-defined effective charge
+% 	Not to use this option, set 0
+%   Default: 	0
+ES_QEFF_USER	0
+
+% User-defined coefficient function for electrostatic elements.
+% 	The values should be assigned in ascending order
+% 	Not to use this option, set 0
+%   Default: 	0
+ES_CF_USER	0
+
+
+%==========================================================================
+% Normal Mode Analysis Options
+%==========================================================================
+% Normal mode analysis (after static analysis)
+%   [0] Not perform
+%   [1] Perform
+%   Default: 	0
+DO_NMA		0
+
+% The lowest mode number to be calculated
+%   Default: 	200
+NMA_MODE_NUM	200
+
+% Mode number to generate shapes starting from the first mode
+%	Two mode shapes are generated using the eigenvectors (minus or plus).
+% 	Not to use this option, set 0
+%   Default: 	5
+NMA_SAVE_NUM	5
+
+% RMSF calculation (after normal mode analysis)
+%   [0] Not perform
+%   [1] Perform
+%   Default: 	0
+DO_NMA_RMSF     0
+
+% Correlation calculation (after normal mode analysis)
+%   The resulting files are saved in png format
+%   [0] Not perform
+%   [1] Perform
+%   Default: 	0
+DO_NMA_CORR     0
+
+% Temperature [K]
+%   Default: 	300
+RMSF_CORR_TEMP	300
+
+% Plot or save mode shapes.
+%   [0] Not save and not plot
+%   [1] Save and closed (.fig)
+%   [2] Save and opened (.fig)
+%   [3] Save and closed (.png)
+%   [4] Save and opened (.png)
+%   Default: 	1
+NMA_PLOT_IND    1
+
+
+%==========================================================================
+% Output File (Static Analysis) Options
+%==========================================================================
+% Plot index for static analysis
+%   [0] Not save and not plot
+%   [1] Save and closed (.fig)
+%   [2] Save and opened (.fig)
+%   [3] Save and closed (.png)
+%   [4] Save and opened (.png)
+%   Default: 	1
+STT_PLOT_IND	1
+
+% Generation of the model file of static trajectory
+%   [0] Not generation
+%   [1] Generation
+%   Default: 	1
+STT_TRAJ_MODEL	1
+
+% Generation of the model file of the final configuration
+%   [0] Not generation
+%   [1] Generation
+%   Default: 	1
+STT_FINL_MODEL	1
+
+% Generation of restart file for final configuration
+%   [0] Not generation
+%   [1] Generation
+%   Default: 	1
+STT_FINL_RES    1
+
+% Generation of the XYZ file for final configuration
+%   [0] Not generation
+%   [1] Generation
+%   Default: 	0
+STT_FINL_XYZ	0
+
+% Generation of the STL file for final configuration
+%   [0] Not generation
+%   [1] Generation
+%   Default: 	0
+STT_FINL_STL	0
+
+% Generation of the oxDNA files for final configuration
+% 	CSV file should be assigned
+%   [0] Not generation
+%   [1] Generation
+%   Default: 	0
+STT_FINL_OX     0
+
+% Generation of the PDB file for final configuration
+% 	CSV file should be assigned
+%   [0] Not generation
+%   [1] Generation
+%   Default: 	0
+STT_FINL_PDB	0
+
+% Generation of the FIG file for intermediate steps
+%   [0] Not generation
+%   [1] Generation
+%   Default: 	0
+STT_INTM_FIG	0
+
+% Generation of the XYZ file for intermediate steps
+%   [0] Not generation
+%   [1] Generation
+%   Default: 	0
+STT_INTM_XYZ	0
+
+% Generation of the STL file for intermediate steps
+%   [0] Not generation
+%   [1] Generation
+%   Default: 	0
+STT_INTM_STL	0
+
+% Generation of the oxDNA files for intermediate steps
+%   Default: 	0
+STT_INTM_OX     1
+
+% Generation of the PDB file for intermediate steps
+%   [0] Not generation
+%   [1] Generation
+%   Default: 	0
+STT_INTM_PDB	0
+
+% Save occupancy and beta as RMSF and strain energy in the PDB file
+%   [0] Not save
+%   [1] Occupancy (RMSF) / Beta (Strain energy)
+%   Default: 	1
+PDB_OB_IND      1
+
+% PDB oxDNA - Export type
+% This option is used to put RMSF and strain energy values into 
+% The configuration of the generated ssDNA may not be appropriate.
+%   the occupancy and beta values in the PDB file for visualization.
+%   [1] PDB or oxDNA file with double-strands only
+%   [2] PDB or oxDNA file with single- and double-strands
+%   Default: 	1
+PDB_EX_IND      1
+
+
+%==========================================================================
+% Dynamic Analysis Options
+%==========================================================================
+% Dynamic simulation
+%   [0] No
+%   [1] Yes
+%   Default: 	0
+DO_DYN          0
+
+% GPU computing for dynamic simulation
+%   [0] Not use
+%   [1] Use
+%   Default: 	0
+DYN_GPU         0
+
+% Initial / Restarting configuration
+%   [1] Relaxed configuration obtained by static analysis (set DO_STT to 1)
+%   [2] Initial configuration from design file
+%   [3] Configuration from restart file: [DESIGN_NAME]_RES.mat
+%   Default: 	1
+DYN_INIT_CONF   1
+
+% Total time steps
+DYN_STEP        500
+
+% Trajectory saving frequency
+DYN_SAVE_FREQ   10
+
+% Time step [ps]
+%   If not specified (DYN_DT_USER = 0),
+%   it is automatically determined using a critical time step
+%   Default: 	5
+DYN_DT_USER     5
+
+% Dynamic matrices updating frequency
+%   Default: 	0
+DYN_MAT_FREQ    0
+
+% Critical time step updating frequency
+%   Default: 	0
+DYN_DTCR_FREQ   0
+
+% Ratio of time step to critical time step
+%   Time step is set to 0.2 when the critical time step and ratio is 2 and 0.1
+%   Default: 	0.5
+DYN_DTCR_RATIO  0.5
+
+% Hydrodynamic bead radius [nm]
+%   Default: 	1.1
+DYN_BEAD_RAD    1.1
+
+% Dynamic viscosity of water [pN/nm^2 * ps]
+%   Default: 	890 (at 300 K)
+DYN_BEAD_MU     890
+
+% Temperature for dynamic simulation [K]
+%   Default: 	300
+DYN_TEMP        300
+
+% Time integration scheme
+%	[101] Langevin dynamics (external random force)
+%	[201] Structural dynamics (no external force)
+%   Default: 	101
+DYN_SCHEME      101
+
+% RMSD & RMSF Calculation
+%   Default:    1
+DO_DYN_RMS      1
+
+% Correlation Calculation
+%   The resulting files are saved in png format
+%   Default:    0
+DO_DYN_CORR     0
+
+
+%==========================================================================
+% Output File (Dynamic Analysis) Options
+%==========================================================================
+% Plot index for dynamic analysis
+%   [0] Not save and not plot
+%   [1] Save and closed (.fig)
+%   [2] Save and opened (.fig)
+%   [3] Save and closed (.png)
+%   [4] Save and opened (.png)
+%   Default: 	1
+DYN_PLOT_IND    1
+
+% Generation of the model file of dynamic trajectory
+%   [0] Not generation
+%   [1] Generation
+%   Default: 	1
+DYN_TRAJ_MODEL 	1
+
+% Save trajectory of node position
+%   [0] Not save
+%   [1] Save
+%   Default: 	1
+DYN_TRAJ_POS 	1
+
+% Save trajectory of node velocity
+%   [0] Not save
+%   [1] Save
+%   Default: 	0
+DYN_TRAJ_VEL 	0
+
+% Save trajectory of triads
+%   [0] Not save
+%   [1] Save
+%   Default: 	0
+DYN_TRAJ_TRIAD 	0
+
+% Save trajectory of mechanical energy
+%   [0] Not save
+%   [1] Save
+%   Default: 	0
+DYN_TRAJ_MECH 	0
+
+% Save trajectory of electrostatic energy
+%   [0] Not save
+%   [1] Save
+%   Default: 	0
+DYN_TRAJ_ELEC 	0
+
+% Save trajectory of kinetic energy
+%   [0] Not save
+%   [1] Save
+%   Default: 	0
+DYN_TRAJ_KINE 	0
+
+% Generation of the model file for initial configuration
+%   [0] Not generation
+%   [1] Generation
+%   Default: 	1
+DYN_INIT_MODEL  1
+
+% Generation of the PDB file for initial configuration
+% 	CSV file should be assigned
+%   [0] Not generation
+%   [1] Generation
+%   Default: 	0
+DYN_INIT_PDB 	0
+
+% Generation of the model file for final configuration
+%   [0] Not generation
+%   [1] Generation
+%   Default: 	1
+DYN_FINL_MODEL  1
+
+% Generation of the XYZ file for final configuration
+%   [0] Not generation
+%   [1] Generation
+%   Default: 	0
+DYN_FINL_XYZ	0
+
+% Generation of the STL file for final configuration
+%   [0] Not generation
+%   [1] Generation
+%   Default: 	0
+DYN_FINL_STL	0
+
+% Generation of the oxDNA files for final configuration
+% 	CSV file should be assigned
+%   [0] Not generation
+%   [1] Generation
+%   Default: 	0
+DYN_FINL_OX     0
+
+% Generation of the PDB file for final configuration
+% 	CSV file should be assigned
+%   [0] Not generation
+%   [1] Generation
+%   Default: 	0
+DYN_FINL_PDB 	0
+
+
+%==========================================================================
+% DGNN (DNA origami Graph Neural Network) File Options
+%==========================================================================
+% Generation of DGNN input file for initial configuration
+%   [0] Not generation
+%   [1] Generation
+%   Default: 	0
+GEN_INIT_DGNN	0
+
+% Generation of DGNN input file for final static configuration
+%   [0] Not generation
+%   [1] Generation
+%   Default: 	0
+GEN_FINL_DGNN	0
+
+
