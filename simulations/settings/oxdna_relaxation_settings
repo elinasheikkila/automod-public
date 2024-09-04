@@ -1,0 +1,33 @@
+
+backend = CPU
+
+sim_type = MD
+steps = 1e6
+T = 300K
+interaction_type = DNA2
+max_backbone_force = 5
+verlet_skin = 0.15
+
+salt_concentration = 1
+
+thermostat = langevin
+diff_coeff = 2.5
+dt = 0.005
+
+topology = top_file.top
+conf_file = conf_file.dat
+
+external_forces = true
+external_forces_file = force_file.json
+
+trajectory_file = trajectory_2.dat
+print_conf_interval = 10000
+
+energy_file = energy.dat
+print_energy_every = 100
+no_stdout_energy = false
+time_scale = linear
+
+restart_step_counter = 1
+refresh_vel = 1
+
